@@ -1,0 +1,17 @@
+14/10/22:
+
+   URL-Uniform Resource Locator -Specifices where a unique resource can be found on the internet.
+     
+     http://localhost:4200
+      |        |       |
+     client  local    Port
+     server  Address
+   
+  Q.What is port and what happens multiple projects run at a time with same port ?
+    
+    It identifies a service provided by an application.
+    Same port number is not used for different applications.Error will be detected.
+
+
+Routing: changes the path/selecting a path across one or more networks.
+   
