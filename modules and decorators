@@ -1,0 +1,42 @@
+31-10-2022:- 
+
+Modules in angular:- 
+
+Modules in angular are logical functional components (multiple components) become part of one component. 
+
+Angular applications are modular and angular has its own modularity system called NgModules.
+
+Q. How does angular knows the modules,services and components..?
+
+Ans:-By decorators.
+
+>>Decorators:- 
+
+Decorators are metadata or type of processing that which angular does.
+
+These are design patterns used to isolate the modification or decoration of a class without modifying the source code.
+
+Decorators are functions takes a single metadata object,whose roperties describe the modules.
+
+--TS feature uses decorators for passing metadata.
+
+--These are called/invoked during runtime.
+
+--decorators are functions that will return a function.
+
+Metadata:-Which contains the informations about the process which we are doing.
+
+>>Types of decorators:-
+
+4 main types of decorators:-
+
+1) class decorators:- a)@NgMdoule b)@Component
+2) Property decoratorsfor properties inside classes:- a)Input b)@output 
+3) Method decorators for methods inside classes:- a)@HostListener
+4) Parameter decorators for parameters inside clas constructor:- a)@Inject 
+
+Each decorator as a unique role.
+
+Decorator always start with symbol @. 
+
+Whenever the decorators are defined those will be imported from @angular/core.
