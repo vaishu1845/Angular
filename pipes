@@ -1,0 +1,162 @@
+07-11-2022:-
+
+**pipes:-
+
+These are used to transform the data from the given input field values.
+pipes will take data input and transform the data into the desired output.
+
+syntax:- '|'
+
+we can apply pipes to any view or any data inputs.
+pipes can be chained with other pipes.
+pipes can be provided with arguments by using the colon (:) sign.
+
+Types of pipes:- 
+
+                            pipes
+                              |
+                              |
+                        ______________
+                        |            |
+                  Built in pipes  custom pipes
+                        |
+             __________________
+             |                 |
+      parameterized pipes   chaining pipes
+
+a)built in pipes:-
+
+Angular provides several built-in pipes to beautify the data being shown on the user interface.  
+
+---DatePipe: Formats a date value.
+---UpperCasePipe: Transforms text to uppercase.
+---LowerCasePipe: Transforms text to lowercase.
+---CurrencyPipe: Transforms a number to the currency string.
+---PercentPipe: Transforms a number to the percentage string. 
+---DecimalPipe: Transforms a number into a decimal point string.
+
+e.g.,In the pipes.component.ts file, we’ve created properties for date and name. 
+
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+
+  selector: 'app-pipes',
+
+  templateUrl: './pipes.component.html',
+
+  styleUrls: ['./pipes.component.css']
+
+})
+
+export class PipesComponent implements OnInit {
+
+  dateToday: string;
+
+  name: string;
+
+  constructor() { }
+
+  ngOnInit(): void {
+
+    this.dateToday = new Date().toDateString();
+
+    this.name = "Simplilearn"
+
+  } 
+
+}
+
+In Pipes.component.html, we’ve interpolated the properties and used pipes to format them.
+
+<h1>
+
+    Date: {{ dateToday  }} <br>
+
+    Date Pipe: {{ dateToday | date | uppercase}}<br>
+
+    Date Pipe: {{ dateToday | date: 'short' | lowercase}} <br>
+
+    Name: {{ name | uppercase}} <br>
+
+    Name: {{ name | slice:6}}
+
+</h1>
+
+
+b)parameterized pipes:- 
+
+when we pass any parameters to the pipes, it is called parameterized pipes we can pass n number of parameters to pipes using a colon (:).
+
+syntax:- <property-name> | pipe-name
+{{ input data | PipeName : parameter1 : parameter2 ... parameter n }}
+
+e.g.,
+
+app.component.ts:
+
+import { Component } from '@angular/core';
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  today : number= Date.now();
+}
+
+app.component.html:-
+
+Current Date : {{today | date}}
+
+  
+Full Date : {{today | date:fullDate}}
+
+  
+Medium Date : {{today | date:medium}}
+
+  
+Short Date : {{today | date:short}}
+
+  
+Date (dd/MM/yyyy) : {{today | date:dd/MM/yyyy}}
+
+  
+Time : {{today | date:h:mm a z}}
+
+  
+Medium Time : {{today | date:mediumTime}}
+
+“date” is a simple non-parameterized pipe that is used to convert the current date in the MMM dd, yyyy format.
+
+The "fullDate" parameter will specify the current date and day of the week in the format: EEEE, MMMM d, y.
+
+The “medium” parameter will transform the date in the format MMM d, y, h:mm:ss a.
+
+The “short” parameter will transform the date in the format M/d/yy, h:mm a.
+
+The “mediumTime” will show the current time in the h:mm:ss a.
+
+
+C)chaining pipes:-
+
+Pipes can be chained together to make use of multiple pipes in one expression. 
+
+For example in the following code, the toDate is passed to the Date Pipe. The output of the Date pipe is then passed to the uppercase pipe.
+
+syntax:--toDate | date | uppercase
+
+number:'3.02'
+
+d) Custom pipe:- 
+
+Custom Pipes in Angular are very useful in case, if we want to re use some business logic across our Angular applications.
+
+We can create custom pipes in Angular in two ways.
+
+--Using ng generate pipe angular cli command.
+--Manually.
+ 
+Creating our own pipes to transform the data.
+
+syntax:-ng generate <pipe_name>
