@@ -1,0 +1,81 @@
+09-11-2022:-
+
+Routing:-
+
+Routing is a mechanism that is used to navigate from one view to the other or from one path to another path 
+    .
+This mechanism is used by Angulat framework
+   
+Angular has something called Routing Stratergy..
+
+Angular has built in 'Router' Module which has all the necessaru things that we need to develop, design and implement routing and navigation links.
+   
+Router module is found in '@angular/router'
+
+Atleaset one instance of router will be available in any angular application.
+
+Router has states which helps us get important information about the current states and data related to router.
+
+Angular handles Routes in so many differnt ways:-
+
+1. Query Parametrs'
+
+2. URL segments
+
+3. default Routes
+
+4. Error Codes
+
+What are Error Codes??
+
+There are different types of error Codes 
+
+1. 2XX -- Success
+
+2. 4XX --> {{401,402,404}} ---Site cannnot reach
+
+3. 5XX --> Server Error
+
+Q.How we will implement this Routing in Angular??
+
+ Each comp can have its own Router.
+       
+ We difine all the routes in a single file, that file is app.routing.module.ts
+
+        const route: Route []=[];
+
+      Syntax:
+      {
+         path:'<name of the path>'
+         componenet:ComponentName
+      }
+
+If path is empty then the route is navigated to the deault path/ empty path...basically a homecomponent
+
+If the path is not found, you need to show, Page Not Found...to handle that we need to have 
+
+           '**' -->PageNot Found Component
+
+Q.What is router-outlet and Why we need outlet?
+
+  
+Router outlet is a directive thats available from router library where the router inserts the component that gets matched with the current browser's URL.
+    
+We can add multiple router outlets in the Angular application which helps in building multiple routing services
+
+    
+By default one router-outlet is available in the app.component.html
+   
+      
+Multiple Router Outlets:
+
+    
+but the priority of the router outlet is the default one with No outlet Name
+
+   Syntax:
+ 
+  In the router-outlet we have the name attribute to be used
+
+    url/(<outlet_route_name>:<route_path>)
+   
+    http://localhost:4200/(routeName:films)
