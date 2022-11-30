@@ -1,0 +1,68 @@
+RouterLink:
+
+  When this Route is applied to an element in a template, matches the element and 
+   that link begins navigation to the route.
+
+
+Syntax:
+      <a,button [routerLink]="'/films'">
+
+      [routerLink]="['/<routePathName>']"
+
+
+1. Wild Card Route: Whenever we are giving some path in the browser, if the path is   
+                    not matching the Routes array i.e, Route[], then its mandatory to mention the wild card route i.e, PageNotFound
+
+
+
+
+What is Loading?  w.r.t browser
+ --> Getting the required files to run the application in the browser
+  1000 --> < 15-20
+ -->Eager Loading --->All the components are loaded to the browser when we open any URL
+ 
+ By default Angular NgModules are eager loading, which means when ever application is opned 
+           all the NgModules gets loaded into the browser. Irrespective of its usage.
+ 
+ -->Lazy Loading --> Loads the component/screens on demand..
+    1. Size of bundle is reduced and there will be a fast loading.
+    2. Dynamic imports/Loading of component.
+
+       What is bundle: Whenever we are giving ng serve, all the code we have written is binded into a file, multiple files, these files are called as bundles.
+
+Steps to create Lazy Loading:
+--> ng g module <module_name> --route <module-route> --module app.module 
+  --> Component Gets generated
+    --> <comp_name>.module.ts
+    --><comp_name>-routing.module.ts
+        .html
+        .css 
+        .ts
+        .spec.ts
+
+   -------->> Update the app-routing.module.ts <<-----------------
+
+   loadChildren:()=>import(<path_location>).then(x=>x.<ModuleName>)
+
+    {
+       path:'grid',
+       loadChildren:()=>import("./grid-module/grid-module.module")
+       .then(x=>x.GridModuleModule)
+  }
+-->https://angular.io/guide/router
+
+
+
+Route Gaurds:
+
+  This gives the flexibilty to prevent the users from navigating to screens without permission.
+  --> Security Gaurd-->> 
+  -->We can generate any number of routes based on our requirements
+
+
+  Different Types of routes:
+   1. CanActivate
+   2. CanDeactivate
+   3. CanActivateChild
+   4. CanLoad
+   5. Resolve
