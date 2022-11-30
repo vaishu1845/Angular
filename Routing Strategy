@@ -1,0 +1,57 @@
+Routing Stratergy:
+---------------------
+Before starting implementation of router in our application, it is very important
+ to understand and plan what will be our routing stratergy.
+
+   Angular has two different Routing Stratergy:
+    1. Path Location Stratergy /
+    2. Hash Location Stratergy. -->/#/ is added at the end of the doman url
+
+     Default stratergy that angular chooses is Path Location Stratergy.
+
+      Syntax:
+   app module 
+   providers:[provide:LocationStratergy, useClass:HashLocationStratergy]
+
+   import {LocationStratergy} from @angular/common
+
+   What is the use of it? While deployiong this application to any cloud platform this will be helpful..
+
+Base href:
+
+<base href="/">
+ While developing the application to maintain versioning, we can use base href with deault path
+
+   ng build --base-href="<path_name>";
+
+
+
+
+   Query Parametr: Passing information in the browser URL...
+   Paramerterized Routes:
+     we can configure and send Parametrs to our routes
+      It will make our routes more dynamic..
+      Example:
+
+       {path:'films/:id',component: FilmComponent}
+
+       We can read the values from the route and process the logic. in our component.
+        
+        Set the syntax ready in the app.routing.module.ts
+
+
+
+        1. import {ActivateRoute} from @angular/router
+        2. inject this Activated Route in the constructor.
+        3. Read the values.
+
+RouterLink:
+
+  When this Route is applied to an element in a template, matches the element and 
+   that link begins navigation to the route.
+
+
+Syntax:
+      <a,button [routerLink]="'/films'">
+
+      [routerLink]="['/<routePathName>']"
